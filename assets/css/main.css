@@ -1302,6 +1302,8 @@ html {
   --dropdown-bg-color: #fff;
   --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
   --top-menu-border-color: #d2d1d6;
+  --sidebar-bg: #fff;
+  --sidebar-shadow: rgba(200, 200, 200, 0.4);
 }
 @media (max-width: 991.98px) {
   html {
@@ -1326,6 +1328,8 @@ html.dark {
   --top-menu-border-color: #171c28;
   --menu-column-icon: brightness(0) saturate(100%) invert(100%) sepia(2%) saturate(2791%) hue-rotate(230deg)
       brightness(98%) contrast(101%);
+  --sidebar-bg: #292e39;
+  --sidebar-shadow: rgba(23, 28, 40, 0.4);
 }
 @media (max-width: 991.98px) {
   html.dark {
@@ -1376,18 +1380,25 @@ html.dark {
     position: fixed;
     inset: 0 50% 0 0;
     z-index: 9;
-    background: #fff;
     margin-left: 0;
     padding: 20px 0;
+    border-radius: 0px 20px 20px 0px;
+    background: var(--sidebar-bg);
     translate: -100%;
     transition: 0.5s;
   }
   .navbar.show {
     translate: 0;
+    box-shadow: 0px 40px 90px 20px var(--sidebar-shadow);
   }
   .navbar.show ~ .navbar__overlay {
     visibility: visible;
     opacity: 1;
+  }
+}
+@media (max-width: 575.98px) {
+  .navbar {
+    inset: 0 20% 0 0;
   }
 }
 .navbar__close-btn {
@@ -1397,6 +1408,11 @@ html.dark {
   .navbar__close-btn {
     display: block;
     padding: 10px 40px;
+  }
+}
+@media (max-width: 575.98px) {
+  .navbar__close-btn {
+    padding: 0 20px 10px;
   }
 }
 .navbar__overlay {
@@ -1418,16 +1434,27 @@ html.dark {
     flex-direction: column;
     align-items: flex-start;
     overflow-y: auto;
-    height: calc(100% - 26px);
+    overscroll-behavior: contain;
+    height: calc(100% - 40px);
+  }
+}
+@media (max-width: 767.98px) {
+  .navbar__list {
+    height: calc(100% - 140px);
   }
 }
 .navbar__item:hover .dropdown {
-  visibility: visible;
-  opacity: 1;
+  display: block;
 }
 @media (max-width: 991.98px) {
   .navbar__item {
     width: 100%;
+  }
+  .navbar__item:hover .dropdown {
+    display: none;
+  }
+  .navbar__item--active .dropdown {
+    display: block !important;
   }
 }
 .navbar__link {
@@ -1446,8 +1473,23 @@ html.dark {
     line-height: 150%;
   }
 }
+@media (max-width: 575.98px) {
+  .navbar__link {
+    height: 44px;
+    padding: 0 20px;
+  }
+}
 .navbar__arrow {
   margin-top: 3px;
+}
+@media (max-width: 991.98px) {
+  .navbar__arrow {
+    transform: rotate(-90deg);
+    transition: 0.3s;
+  }
+}
+.navbar__item--active .navbar__arrow {
+  transform: rotate(0deg);
 }
 
 .top-act {
@@ -1496,6 +1538,27 @@ html.dark {
   border-radius: 8px;
 }
 
+.nav-btn {
+  height: 50px;
+  align-items: center;
+  padding: 0 40px;
+}
+@media (max-width: 575.98px) {
+  .nav-btn {
+    height: 44px;
+    padding: 0 20px;
+  }
+}
+.nav-btn__title, .nav-btn__qnt {
+  margin-left: 16px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 146.667%;
+}
+.nav-btn__qnt {
+  margin-left: auto;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -1532,16 +1595,14 @@ html.dark {
   position: absolute;
   padding-top: 54px;
   left: 0;
-  visibility: hidden;
-  opacity: 0;
+  display: none;
   transition: all 0.5s;
   width: min(1240px, 100%);
 }
 @media (max-width: 991.98px) {
   .dropdown {
+    display: none;
     position: initial;
-    visibility: visible;
-    opacity: 1;
     padding-top: 0;
   }
 }
@@ -1572,6 +1633,11 @@ html.dark {
     content: none;
   }
 }
+@media (max-width: 575.98px) {
+  .dropdown__inner {
+    padding: 0 20px;
+  }
+}
 
 .top-menu {
   --main-column-width: 292px;
@@ -1580,7 +1646,7 @@ html.dark {
 }
 .top-menu__main {
   width: var(--main-column-width);
-  max-height: var(--max-inner-height);
+  height: var(--max-inner-height);
   border-right: 1px solid var(--top-menu-border-color);
   overflow-y: auto;
 }
@@ -1669,10 +1735,6 @@ html.dark {
   font-size: 1.4rem;
   line-height: 142.857%;
 }
-.menu-column__link:hover {
-  color: #0071dc;
-  font-weight: 500;
-}
 
 .sub-menu {
   position: absolute;
@@ -1697,6 +1759,12 @@ html.dark {
   grid-template-columns: repeat(4, 1fr);
   height: var(--max-inner-height);
   padding-left: 0;
+}
+@media (max-width: 991.98px) {
+  .sub-menu--not-main {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

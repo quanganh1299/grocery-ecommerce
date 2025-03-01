@@ -4,15 +4,13 @@
     position: absolute;
     padding-top: 54px;
     left: 0;
-    visibility: hidden;
-    opacity: 0;
+    display: none;
     transition: all 0.5s;
     width: min(1240px, 100%);
 
     @include abstracts.breakpoint(lg) {
+        display: none;
         position: initial;
-        visibility: visible;
-        opacity: 1;
         padding-top: 0;
     }
 
@@ -46,6 +44,10 @@
                 content: none;
             }
         }
+
+        @include abstracts.breakpoint(sm) {
+            padding: 0 20px;
+        }
     }
 }
 
@@ -57,7 +59,7 @@
 
     &__main {
         width: var(--main-column-width);
-        max-height: var(--max-inner-height);
+        height: var(--max-inner-height);
         border-right: 1px solid var(--top-menu-border-color);
         overflow-y: auto;
 
@@ -152,11 +154,6 @@
         padding: 7px 0;
         font-size: 1.4rem;
         line-height: 142.857%;
-
-        &:hover {
-            color: #0071dc;
-            font-weight: 500;
-        }
     }
 }
 
@@ -184,5 +181,10 @@
         grid-template-columns: repeat(4, 1fr);
         height: var(--max-inner-height);
         padding-left: 0;
+
+        @include abstracts.breakpoint(lg) {
+            grid-template-columns: 1fr;
+            height: auto;
+        }
     }
 }

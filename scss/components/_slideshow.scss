@@ -15,7 +15,7 @@
         width: 100%;
         padding-top: 34%;
 
-        @include abstracts.breakpoint(md) {
+        @include abstracts.screen(md) {
             padding-top: 50%;
         }
     }
@@ -47,7 +47,7 @@
         line-height: 144.444%;
         color: var(--color);
 
-        @include abstracts.breakpoint(md) {
+        @include abstracts.screen(md) {
             font-size: 1.4rem;
             line-height: 142.857%;
         }
@@ -82,7 +82,7 @@
             translate: 90% -50%;
         }
 
-        @include abstracts.breakpoint(md) {
+        @include abstracts.screen(md) {
             height: 3px;
 
             &::before,

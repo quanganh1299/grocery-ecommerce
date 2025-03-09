@@ -42,6 +42,11 @@ html {
 
     // Auth
     --auth-content-bg: #fff;
+    --auth-text-color: #9e9da8;
+
+    // Form
+    --form-placeholder-color: #d2d1d6;
+    --form-label-color: #9e9da8;
 
     @include abstracts.screen(lg) {
         --header-bg-color: #fff;
@@ -50,5 +55,6 @@ html {
 
     @include abstracts.screen(md) {
         --cate-item-bg: #fff;
+        --auth-intro-bg: #fff;
     }
 }

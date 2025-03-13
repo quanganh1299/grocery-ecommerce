@@ -13,6 +13,10 @@ html {
     --top-act-group-shadow: rgba(237, 237, 246, 0.2);
     --top-act-btn-group-separate: #ededf6;
 
+    // Header
+    --header-act-dropdown-bg: #fff;
+    --header-act-dropdown-shadow: rgba(200, 200, 200, 0.4);
+
     // Dropdown
     --dropdown-bg-color: #fff;
     --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
@@ -64,6 +68,9 @@ html {
     // Review card
     --review-card-bg: #fafafd;
 
+    // Text-content
+    --text-content-hr-bg: #ebebeb;
+
     @include abstracts.screen(lg) {
         --header-bg-color: #fff;
         --header-shadow-color: rgba(237, 237, 246, 0.2);
@@ -75,5 +82,6 @@ html {
         --breadcrumbs-bg: #fff;
         --product-detail-bg: #fafafd;
         --product-detail-info-bg: #fff;
+        --review-card-bg: #fff;
     }
 }

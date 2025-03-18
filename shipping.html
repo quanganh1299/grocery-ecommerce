@@ -44,19 +44,19 @@
                 <!-- Breadcrumbs -->
                 <div class="checkout-container">
                     <ul class="breadcrumbs checkout-page__breadcrumbs">
-                        <li class="form__option">
+                        <li>
                             <a href="./" class="breadcrumbs__link">
                                 Home
                                 <img src="./assets/icons/arrow-right.svg" alt="" />
                             </a>
                         </li>
-                        <li class="form__option">
+                        <li>
                             <a href="./checkout.html" class="breadcrumbs__link">
                                 Checkout
                                 <img src="./assets/icons/arrow-right.svg" alt="" />
                             </a>
                         </li>
-                        <li class="form__option">
+                        <li>
                             <a href="#!" class="breadcrumbs__link breadcrumbs__link--current">Shipping</a>
                         </li>
                     </ul>
@@ -398,7 +398,7 @@
                                     <span>Total:</span>
                                     <span>$201.65</span>
                                 </div>
-                                <a href="#!" class="cart-info__next-btn btn btn--primary btn--rounded">
+                                <a href="./payment.html" class="cart-info__next-btn btn btn--primary btn--rounded">
                                     Continue to checkout
                                 </a>
                             </div>
@@ -432,16 +432,16 @@
         <!-- Modal: confirm remove cart item -->
         <div class="modal modal--small hide" id="delete-confirm">
             <div class="modal__content">
-                <div class="modal__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</div>
+                <div class="modal__text">Do you want to remove this item from shopping cart?</div>
                 <div class="modal__bottom">
-                    <button class="btn btn--small btn--text modal__btn js-toggle" toggle-target="#delete-confirm">
+                    <button class="btn btn--small btn--outline modal__btn js-toggle" toggle-target="#delete-confirm">
                         Cancel
                     </button>
                     <button
-                        class="btn btn--small btn--primary btn--no-margin modal__btn js-toggle"
+                        class="btn btn--danger btn--small btn--primary btn--no-margin modal__btn js-toggle"
                         toggle-target="#delete-confirm"
                     >
-                        Confirm
+                        Delete
                     </button>
                 </div>
             </div>
@@ -451,9 +451,9 @@
         <!-- Modal: add new shipping address -->
         <div class="modal hide" id="add-new-address">
             <div class="modal__content">
-                <h2 class="modal__heading">Add a new shipping address</h2>
-                <div class="modal__body">
-                    <form action="" class="form">
+                <form action="" class="form">
+                    <h2 class="modal__heading">Add a new shipping address</h2>
+                    <div class="modal__body">
                         <div class="form__row">
                             <div class="form__group">
                                 <label for="name" class="form__label form__label--small">Name</label>
@@ -509,6 +509,7 @@
                                     type="text"
                                     name=""
                                     id="city"
+                                    readonly
                                     placeholder="City/District/Town"
                                     class="form__input js-toggle"
                                     toggle-target="#city-dialog"
@@ -516,7 +517,9 @@
                                 />
                                 <img src="./assets/icons/form-error.svg" alt="" class="form__input-icon-error" />
 
+                                <!-- Select dialog -->
                                 <div id="city-dialog" class="form__select-dialog hide">
+                                    <h2 class="form__dialog-heading d-none d-sm-block">City/District/Town</h2>
                                     <button
                                         class="form__close-dialog d-none d-sm-block js-toggle"
                                         toggle-target="#city-dialog"
@@ -575,19 +578,22 @@
                                 <span class="form__checkbox-label">Set as default address</span>
                             </label>
                         </div>
-                    </form>
-                </div>
-                <div class="modal__bottom">
-                    <button class="btn btn--small btn--text modal__btn js-toggle" toggle-target="#add-new-address">
-                        Cancel
-                    </button>
-                    <button
-                        class="btn btn--small btn--primary btn--no-margin modal__btn js-toggle"
-                        toggle-target="#add-new-address"
-                    >
-                        Confirm
-                    </button>
-                </div>
+                    </div>
+                    <div class="modal__bottom">
+                        <button
+                            class="btn btn--small btn--outline modal__btn js-toggle"
+                            toggle-target="#add-new-address"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            class="btn btn--small btn--primary btn--no-margin modal__btn form__submit-btn js-toggle"
+                            toggle-target="#add-new-address"
+                        >
+                            Create
+                        </button>
+                    </div>
+                </form>
             </div>
             <div class="modal__overlay"></div>
         </div>

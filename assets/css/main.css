@@ -1486,6 +1486,8 @@ html.dark {
 }
 
 .header {
+  position: relative;
+  z-index: 2;
   background: var(--header-bg-color);
 }
 @media (max-width: 991.98px) {
@@ -2252,6 +2254,10 @@ html.dark {
 .btn--rounded {
   border-radius: 9999px;
 }
+.btn--danger {
+  background: #ed4337;
+  color: #fff;
+}
 .btn[disabled], .btn--disabled {
   opacity: 0.5;
   pointer-events: none;
@@ -2624,12 +2630,18 @@ html.dark {
     border-radius: 0;
   }
 }
+.form__dialog-heading {
+  padding: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+}
 .form__close-dialog {
   font-size: 3rem;
   position: absolute;
   top: 0;
   right: 0;
-  padding: 2px 18px;
+  padding: 12px 18px;
   opacity: 0.8;
 }
 .form__search {
@@ -2652,20 +2664,22 @@ html.dark {
 }
 .form__search-icon {
   width: 16px;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 @media (max-width: 991.98px) {
   .form__search {
-    height: 42px;
+    height: 48px;
+  }
+  .form__search-icon {
+    width: 20px;
   }
 }
 @media (max-width: 575.98px) {
   .form__search {
-    flex-direction: row-reverse;
-    margin-top: 30px;
-  }
-  .form__search-icon {
-    margin-left: 0;
+    padding: 0 14px;
+    margin: 10px 30px 0;
+    border: 1px solid #d2d1d6;
+    border-radius: 10px;
   }
 }
 .form__options-list {
@@ -2673,6 +2687,11 @@ html.dark {
   margin-top: 10px;
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+@supports (-webkit-touch-callout: none) {
+  .form__options-list {
+    padding-bottom: 300px;
+  }
 }
 .form__option {
   padding: 8px 20px;
@@ -2688,7 +2707,8 @@ html.dark {
 }
 @media (max-width: 991.98px) {
   .form__option {
-    padding: 14px 20px;
+    padding: 18px 30px;
+    font-size: 1.6rem;
   }
 }
 .form__error {
@@ -2882,7 +2902,7 @@ html.dark {
   flex: 1;
   height: 100%;
   padding-left: 15px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 500;
   line-height: 142.857%;
 }
@@ -3119,8 +3139,8 @@ html.dark {
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 30px;
+  gap: 20px;
+  margin-top: 50px;
   padding-right: 20px;
 }
 @media (max-width: 767.98px) {
